@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS source_runs (
 CREATE TABLE IF NOT EXISTS companies (
     id BIGSERIAL PRIMARY KEY,
     source_company_id TEXT,
-    name TEXT NOT NULL,
+    name TEXT NOT NULL UNIQUE,
     created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
