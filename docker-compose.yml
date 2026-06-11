@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: hen-parser-postgres
+    environment:
+      POSTGRES_DB: hen_parser
+      POSTGRES_USER: hen_parser
+      POSTGRES_PASSWORD: hen_parser
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./db/schema.sql:/docker-entrypoint-initdb.d/01_schema.sql:ro
+
+volumes:
+  postgres_data:
